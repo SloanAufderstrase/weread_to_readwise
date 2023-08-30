@@ -300,7 +300,11 @@ if __name__ == "__main__":
             bookmark_list.extend(reviews)
             #print(title,bookId)
             
-            annotations = []
+            if title in readwise_book and len(bookmark_list)==readwise_book[title]:
+                print("跳过",title,bookId)
+                continue
+            else:
+                annotations = []
                 
             
             bookmark_list = sorted(bookmark_list, key=lambda x: (
